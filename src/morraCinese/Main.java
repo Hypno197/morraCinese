@@ -55,7 +55,11 @@ public class Main {
 
 		} while (puntiAvv < 5 && puntiUser < 5);
 		sc.close();
-
+		
+		if (puntiUser == 5)
+			System.out.println("Hai vinto la partita!!");
+		else
+			System.out.println("Hai perso la partita!!");
 	}
 
 }
