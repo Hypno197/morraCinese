@@ -7,6 +7,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		Scanner sc = new Scanner(System.in);
 		Random r = new Random();
 		int segnoAvv, segnoUser, puntiUser, puntiAvv; //assegno variabili int e stringa ai vari input user e pc per il confronto e la leggibilità dei risultati per l'utente
@@ -60,6 +61,7 @@ public class Main {
 			System.out.println("Hai vinto la partita!!");
 		else
 			System.out.println("Hai perso la partita!!");
+		
 	}
 
 }

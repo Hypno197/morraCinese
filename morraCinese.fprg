@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Luca_"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-05-06 04:10:00 "/>
+        <attribute name="created" value="THVjYV87SFlQTk87MjAyNC0wNS0wNjsiMDI6MjU6MDEgIjsyMDY2"/>
+        <attribute name="edited" value="THVjYV87SFlQTk87MjAyNC0wNS0wNjsiMDQ6MTA6MDAgIjsxOzIxNjk="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="segnoAvversario" type="Integer" array="False" size=""/>
+            <declare name="segnoUtente" type="Integer" array="False" size=""/>
+            <declare name="outcome" type="String" array="False" size=""/>
+            <declare name="segno" type="String" array="False" size=""/>
+            <declare name="segnoAvvTrad" type="String" array="False" size=""/>
+            <declare name="puntiUtente" type="Integer" array="False" size=""/>
+            <declare name="puntiAvversario" type="Integer" array="False" size=""/>
+            <assign variable="puntiUtente" expression="0"/>
+            <assign variable="puntiAvversario" expression="0"/>
+            <do expression="puntiUtente &lt; 5 &amp;&amp; puntiAvversario &lt;5">
+                <output expression="&quot;Sasso, carta o forbice?&quot;" newline="True"/>
+                <input variable="segno"/>
+                <assign variable="segnoAvversario" expression="random(3)"/>
+                <if expression="segno = &quot;carta&quot;">
+                    <then>
+                        <assign variable="segnoUtente" expression="0"/>
+                    </then>
+                    <else>
+                        <if expression="segno = &quot;sasso&quot;">
+                            <then>
+                                <assign variable="segnoUtente" expression="1"/>
+                            </then>
+                            <else>
+                                <if expression="segno = &quot;forbice&quot;">
+                                    <then>
+                                        <assign variable="segnoUtente" expression="2"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="segnoAvversario=0">
+                    <then>
+                        <assign variable="segnoAvvTrad" expression="&quot;carta&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="segnoAvversario=1">
+                            <then>
+                                <assign variable="segnoAvvTrad" expression="&quot;sasso&quot;"/>
+                            </then>
+                            <else>
+                                <assign variable="segnoAvvTrad" expression="&quot;forbice&quot;"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <if expression="segnoUtente = segnoAvversario">
+                    <then>
+                        <assign variable="outcome" expression="&quot;pareggiato..&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="segnoUtente=0 &amp;&amp; segnoAvversario =1 || segnoUtente=1 &amp;&amp; segnoAvversario =2 ||segnoUtente=2 &amp;&amp; segnoAvversario =0">
+                            <then>
+                                <assign variable="outcome" expression="&quot;vinto!!&quot;"/>
+                                <assign variable="puntiUtente" expression="puntiUtente+1"/>
+                            </then>
+                            <else>
+                                <assign variable="outcome" expression="&quot;perso!&quot;"/>
+                                <assign variable="puntiAvversario" expression="puntiAvversario+1"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="&quot;Il tuo avversario ha lanciato &quot;&amp;segnoAvvTrad&amp;&quot;! Hai &quot;&amp;outcome" newline="True"/>
+                <output expression="&quot;Il punteggio &#232; &quot;&amp;puntiUtente&amp;&quot; a &quot;&amp;puntiAvversario" newline="True"/>
+            </do>
+            <if expression="puntiUtente=5">
+                <then>
+                    <output expression="&quot;Hai vinto la partita!!&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Hai perso la partita!!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
